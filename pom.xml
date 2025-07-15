@@ -3,7 +3,7 @@
 	<groupId>com.github.mauricioaniche</groupId>
 	<artifactId>ck</artifactId>
 	<packaging>jar</packaging>
-	<version>0.7.1-SNAPSHOT</version>
+	<version>0.7.2-SNAPSHOT</version>
 	<name>CK calculator</name>
 	<url>http://www.mauricioaniche.com</url>
 	<description>Java code metrics calculator</description>
@@ -74,10 +74,11 @@
 			<version>0.9.12</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jdt/org.eclipse.jdt.core -->
 		<dependency>
 			<groupId>org.eclipse.jdt</groupId>
 			<artifactId>org.eclipse.jdt.core</artifactId>
-			<version>3.26.0</version>
+			<version>3.42.0</version>
 		</dependency>
 
 		<dependency>

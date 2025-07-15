@@ -22,7 +22,7 @@ public class CK {
 
 	private final int maxAtOnce;
 	private final boolean useJars;
-	
+
 	private static Logger log = Logger.getLogger(CK.class);
 
 	Callable<List<ClassLevelMetric>> classLevelMetrics;
@@ -86,7 +86,7 @@ public class CK {
 
 		if(useJars)
 			log.info("Found " + allDependencies.length + " jar dependencies");
-		
+
 		MetricsExecutor storage = new MetricsExecutor(classLevelMetrics, methodLevelMetrics, notifier);
 
 		// Converts the paths to strings and makes the method support relative paths as well.
@@ -97,18 +97,18 @@ public class CK {
 
 		for(List<String> partition : partitions) {
 			log.debug("Next partition");
-			ASTParser parser = ASTParser.newParser(AST.JLS11);
-			
+			ASTParser parser = ASTParser.newParser(AST.JLS24);
+
 			parser.setResolveBindings(true);
 			parser.setBindingsRecovery(true);
-			
+
 			Map<String, String> options = JavaCore.getOptions();
-			JavaCore.setComplianceOptions(JavaCore.VERSION_11, options);
+			JavaCore.setComplianceOptions(JavaCore.VERSION_24, options);
 			parser.setCompilerOptions(options);
 			parser.setEnvironment(allDependencies, srcDirs, null, true);
 			parser.createASTs(partition.toArray(new String[partition.size()]), null, new String[0], storage, null);
 		}
-		
+
 		log.info("Finished parsing");
     }
 
